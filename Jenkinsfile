@@ -7,7 +7,7 @@ pipeline {
         stage('Docker-compose') {
             steps{
                 sh 'echo "building image and running container..."'
-                sh 'docker-compose up'
+                sh 'docker-compose up -d'
                 sh 'echo "app listening on port 5000"'
             }
         }
