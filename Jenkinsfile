@@ -11,5 +11,13 @@ pipeline {
                 sh 'echo "app listening on port 5000"'
             }
         }
+        stage('code analysis'){
+            steps{
+                def scannerHome = tool 'SonarScanner 4.0';
+                withSonarQubeEnv('flask-sonarqube-server') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+            }
+        }
     }
 }
