@@ -12,8 +12,10 @@ pipeline {
             }
         }
         stage('code analysis'){
+            environment{
+                scannerHome = tool 'sonar-scanner'
+            }
             steps{
-                def scannerHome = tool 'SonarScanner 4.0';
                 withSonarQubeEnv('flask-sonarqube-server') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
