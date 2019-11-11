@@ -4,7 +4,10 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 class Test(Resource):
+    foo = 1
     geT = "test"
+    def Foo(self):
+        pass 
     def get(self):
         return "test"
 
